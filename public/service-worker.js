@@ -7,6 +7,8 @@ const urlsToCache = [
   '/assets/js/app.js',
   '/assets/js/map.js',
   '/assets/js/utils.js',
+  '/assets/js/order.js',
+  '/assets/js/station.js',
   '/manifest.json',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'
