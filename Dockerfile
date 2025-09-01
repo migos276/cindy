@@ -1,30 +1,19 @@
+# Utiliser une image PHP 8.2 avec Apache
 FROM php:8.2-apache
 
-# Install system dependencies
+# Installer les dépendances système nécessaires pour les extensions PHP
 RUN apt-get update && apt-get install -y \
+    libsqlite3-dev \
     libzip-dev \
-    zip \
     unzip \
-    && docker-php-ext-install zip pdo pdo_mysql \
-    && docker-php-ext-enable pdo_mysql
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install SQLite
-RUN apt-get install -y sqlite3 libsqlite3-dev \
-    && docker-php-ext-install pdo_sqlite
+# Installer les extensions PHP requises par l'application
+RUN docker-php-ext-install pdo pdo_sqlite zip
 
-# Enable Apache mod_rewrite
+# Activer le module de réécriture d'URL d'Apache (pour les .htaccess)
 RUN a2enmod rewrite
 
-# Copy application files
-COPY . /var/www/html/
-
-# Set permissions
-RUN chown -R www-data:www-data /var/www/html/ \
-    && chmod -R 755 /var/www/html/
-
-# Create database directory
-RUN mkdir -p /var/www/html/database && chown www-data:www-data /var/www/html/database
-
-EXPOSE 80
-
-CMD ["apache2-foreground"]
+# Définir le répertoire de travail
+WORKDIR /var/www/html

@@ -10,7 +10,7 @@
     <meta name="description" content="Livraison de gaz domestique au Cameroun - Service rapide et fiable">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="/public/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     
     <!-- Fonts -->
@@ -31,16 +31,16 @@
     
     <!-- Scripts -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="/public/assets/js/app.js"></script>
-    <script src="/public/assets/js/map.js"></script>
-    <script src="/public/assets/js/utils.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/map.js"></script>
+    <script src="/assets/js/utils.js"></script>
     
     <?php if (isset($page) && $page === 'order'): ?>
-        <script src="/public/assets/js/order.js"></script>
+        <script src="/assets/js/order.js"></script>
     <?php endif; ?>
     
     <?php if (isset($page) && strpos($page, 'station') !== false): ?>
-        <script src="/public/assets/js/station.js"></script>
+        <script src="/assets/js/station.js"></script>
     <?php endif; ?>
     
     <script>
